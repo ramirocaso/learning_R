@@ -9,22 +9,47 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## ¿Qué es un Data Frame?
+Un data frame no es otra cosa que una tabla de datos en la que las filas representan las observaciones y las columnas las variables. El DF, a diferencia de la matriz, puede almacenar diferentes tipos de varialbes (eso quiere decir, diferentes niveles de medidas)
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+Veamos un data frame que viene ya en RStudio: mtcars 
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+```{r}
+# Imprimir el DF mtcars
+mtcars 
+```
+## Echémosle una mirada rápida al data frame. 
 
-```{r cars}
-summary(cars)
+R permite trabajar con grandes cantidades de datos, por lo que verlos todos es imposible salvo que nuestro DF sea realmente pequeño. .
+
+La función head() permite ver las primeras filas de tu DF. De forma similar, la función tail() muestra las últimas observaciones. 
+
+
+```{r}
+  # Usa head() en mtcars
+head(mtcars)
+
+  # Usa tail() en mtcars
+tail(mtcars)
 ```
 
-## Including Plots
+# Viendo la estructura
 
-You can also embed plots, for example:
+Otra opción es ver la estructura, usando la función str()
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+Para nuestro data frame, podemos ver aspectos como: 
+
+1. El numero total de observaciones (ej. 32 tipos de carros)
+2. El número total de varialbes (ej. 11 atributos o variables)
+3. La lista completa de las variables con sus nombres (ej. mpg, cyl,...)
+4. El tipo de dato en cada variable o el nivel de medida (ej. num) 
+5. Las primeras observaciones. 
+
+Usar la función str() es de las primeras cosas que debemos hacer cuando tenemos un data frame nuevo. 
+
+
+```{r}
+# Revisemos la estructura de mtcars con str()
+str(mtcars)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
