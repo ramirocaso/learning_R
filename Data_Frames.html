@@ -263,60 +263,100 @@ str(mtcars)</code></pre>
 </div>
 <div id="creando-un-data-frame" class="section level1">
 <h1>Creando un Data Frame</h1>
-<p>Construyamos un DF con información de planetas. Las características principales de estos planetas son:</p>
+<p>Construyamos un DF con información del fútbol argentino ;) Las variables que utilizaremos son:</p>
 <ul>
-<li>Tipo de planeta (Terrestrial or Gas Giant).</li>
-<li>El diámetro del planeta relativo al diámetro de la tierra.</li>
-<li>La rotación del planeta en relación al sol relativa a la rotación de la tierra</li>
-<li>Si el planeta tiene anillos o no (TRUE or FALSE)</li>
+<li>nombre: Nombre del jugador.</li>
+<li>goles (total goles en su carrera)</li>
+<li>partidos (total partidos en su carrera)</li>
+<li>argentino_si (Si el jugador es Argentino o no - TRUE or FALSE)</li>
+<li>equipo (nombre del equipo)</li>
 </ul>
-<p>Necesitamos crear los vectores necesarios: name, type, diamater, rotation y ring.</p>
+<p>Necesitamos crear los vectores necesarios: nombre, goles, partidos, argentino_si, equipo.</p>
 <pre class="r"><code>  # Definición de los vectores
-name &lt;- c(&quot;Mercury&quot;, &quot;Venus&quot;, &quot;Earth&quot;, &quot;Mars&quot;, &quot;Jupiter&quot;, &quot;Saturn&quot;, &quot;Uranus&quot;, &quot;Neptune&quot;)
-type &lt;- c(&quot;Terrestrial planet&quot;, &quot;Terrestrial planet&quot;, &quot;Terrestrial planet&quot;, 
-          &quot;Terrestrial planet&quot;, &quot;Gas giant&quot;, &quot;Gas giant&quot;, &quot;Gas giant&quot;, &quot;Gas giant&quot;)
-diameter &lt;- c(0.382, 0.949, 1, 0.532, 11.209, 9.449, 4.007, 3.883)
-rotation &lt;- c(58.64, -243.02, 1, 1.03, 0.41, 0.43, -0.72, 0.67)
-rings &lt;- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
+nombre &lt;- c(&quot;Arseio Erico&quot;, &quot;Angel Labruna&quot;, &quot;Herminio Masantonio&quot;, &quot;Manuel Pelegrina&quot;, &quot;Martín Palermo&quot;, &quot;José Sanfilippo&quot;, &quot;Carlos Bianchi&quot;, &quot;Miguel Brindisi&quot;)
+goles &lt;- c(295,293,256,229,227,226,206,194)
+partidos &lt;- c(332,515,358,229,410,330,324,441)
+argentino_si &lt;- c(FALSE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE)
+equipo &lt;- c(&quot;Independiente&quot;,&quot;River&quot;,&quot;Huracán&quot;,&quot;Estudiantes&quot;,&quot;Boca Juniors&quot;,&quot;San Lorenzo&quot;,&quot;Velez Sarfield&quot;,&quot;Huracán&quot;)
 
-# Una vez creados los vectores, hacemos el data frame y lo llamamos planets_df
-planets_df &lt;-data.frame(name, type, diameter, rotation, rings)
+# Una vez creados los vectores, hacemos el data frame y lo llamamos goleadores_df
+goleadores_df &lt;-data.frame(nombre,goles,partidos,argentino_si,equipo)
 
 # Aprovechemos y apliquemos lo aprendido viendo la estructura del nuevo DF
-str(planets_df)</code></pre>
+str(goleadores_df)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    8 obs. of  5 variables:
-##  $ name    : Factor w/ 8 levels &quot;Earth&quot;,&quot;Jupiter&quot;,..: 4 8 1 3 2 6 7 5
-##  $ type    : Factor w/ 2 levels &quot;Gas giant&quot;,&quot;Terrestrial planet&quot;: 2 2 2 2 1 1 1 1
-##  $ diameter: num  0.382 0.949 1 0.532 11.209 ...
-##  $ rotation: num  58.64 -243.02 1 1.03 0.41 ...
-##  $ rings   : logi  FALSE FALSE FALSE FALSE TRUE TRUE ...</code></pre>
+##  $ nombre      : Factor w/ 8 levels &quot;Angel Labruna&quot;,..: 2 1 4 6 7 5 3 8
+##  $ goles       : num  295 293 256 229 227 226 206 194
+##  $ partidos    : num  332 515 358 229 410 330 324 441
+##  $ argentino_si: logi  FALSE TRUE TRUE TRUE TRUE TRUE ...
+##  $ equipo      : Factor w/ 7 levels &quot;Boca Juniors&quot;,..: 4 5 3 2 1 6 7 3</code></pre>
 </div>
 <div id="seleccionando-datos-de-un-data-frame" class="section level1">
 <h1>Seleccionando datos de un data frame</h1>
-<p>Para escoger datos de un data frame podemos usar los brackets []. Separando los números con comas, el primero indica que fila buscar y el segundo que columna buscar. Así, por ejemplo planets_df[1,3] busca el dato de la primera fila y la tercera columna.</p>
-<p>Si dejamos alguno de los dos espacios libres, R te devuelve todos los datos en las filas o la columnas. Por ejemplo, planets_df[4,] te devuelve todos los valores de las variables (es decir, todas las columnas) para la fila 4.</p>
-<p>También podemos hacer rangos, separando los números con dos puntos. Por ejemplo, si usamos planets_df[1:3,2:4], R te devuelve las variables de las columnas 2,3 y 4 para las filas 1,2 y 3.</p>
+<p>Para escoger datos de un data frame podemos usar los brackets []. Separando los números con comas, el primero indica que fila buscar y el segundo que columna buscar. Así, por ejemplo goleadores_df[1,3] busca el dato de la primera fila y la tercera columna.</p>
+<p>Si dejamos alguno de los dos espacios libres, R te devuelve todos los datos en las filas o la columnas. Por ejemplo, goleadores_df[4,] te devuelve todos los valores de las variables (es decir, todas las columnas) para la fila 4.</p>
+<p>También podemos hacer rangos, separando los números con dos puntos. Por ejemplo, si usamos goleadores[1:3,2:4], R te devuelve las variables de las columnas 2,3 y 4 para las filas 1,2 y 3.</p>
 <p>Veamos.</p>
-<pre class="r"><code># veamos el diámetro de Mercury (fila 1, columna 3)
-planets_df[1,3]</code></pre>
-<pre><code>## [1] 0.382</code></pre>
-<pre class="r"><code># ahora veamos todos los valores para Mars (la fila 4 completa)
-planets_df[4,]</code></pre>
-<pre><code>##   name               type diameter rotation rings
-## 4 Mars Terrestrial planet    0.532     1.03 FALSE</code></pre>
+<pre class="r"><code># veamos cuántos partidos jugó Martín Palermo en su carrera (fila 5, columna 2)
+goleadores_df[5,2]</code></pre>
+<pre><code>## [1] 227</code></pre>
+<pre class="r"><code># ahora veamos todos los valores para Carlos Bianchi (la fila 7 completa)
+goleadores_df[7,]</code></pre>
+<pre><code>##           nombre goles partidos argentino_si         equipo
+## 7 Carlos Bianchi   206      324         TRUE Velez Sarfield</code></pre>
 <p>Otra forma de seleccionar es usando el nombre de la variable en lugar de su número. Esto puede ser más útil cuando se tienen data frames muy anchos (con muchas variables)</p>
-<pre class="r"><code># seleccionar columnas usando sus nombres. Veamos las primeras tres filas de la variable &quot;type&quot;
-planets_df[1:3,&quot;type&quot;]</code></pre>
-<pre><code>## [1] Terrestrial planet Terrestrial planet Terrestrial planet
-## Levels: Gas giant Terrestrial planet</code></pre>
-<p>A veces queremos seleccionar una columna entera. Hay varias formas de hacer eso. Una es como ya vimos: planets_df[,3] planets_df[,“diameter”] Pero también podemos hacer un vector nuevo y usamos el signo de $ para decirle a R cual columna del data frame queremos. Por ejemplo, si queremos la columna “diamater”, podemos hacer diameter_planets &lt;- planets_df$diameter. Veámoslo en código.</p>
-<pre class="r"><code>planets_df[,3]</code></pre>
-<pre><code>## [1]  0.382  0.949  1.000  0.532 11.209  9.449  4.007  3.883</code></pre>
-<pre class="r"><code>planets_df[,&quot;diameter&quot;]</code></pre>
-<pre><code>## [1]  0.382  0.949  1.000  0.532 11.209  9.449  4.007  3.883</code></pre>
-<pre class="r"><code>diameter_vector &lt;-planets_df$diameter # Noten que este código crea un vector aparte, llamado diameter_vector
-diameter_vector</code></pre>
-<pre><code>## [1]  0.382  0.949  1.000  0.532 11.209  9.449  4.007  3.883</code></pre>
+<pre class="r"><code># seleccionar columnas usando sus nombres. Veamos las primeras tres filas de la variable &quot;equipo&quot;
+goleadores_df[1:3,&quot;equipo&quot;]</code></pre>
+<pre><code>## [1] Independiente River         Huracán      
+## 7 Levels: Boca Juniors Estudiantes Huracán Independiente River ... Velez Sarfield</code></pre>
+<p>A veces queremos seleccionar una columna entera. Hay varias formas de hacer eso. Una es como ya vimos: goleadores[,1] planets_df[,“nombre”] Pero también podemos hacer un vector nuevo y usamos el signo de $ para decirle a R cual columna del data frame queremos. Por ejemplo, si queremos la columna “argentino_si”, podemos hacer argentino_vector &lt;- goleadores_df$argentino_si Veámoslo en código.</p>
+<pre class="r"><code>goleadores_df[,4]</code></pre>
+<pre><code>## [1] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
+<pre class="r"><code>goleadores_df[,&quot;argentino_si&quot;]</code></pre>
+<pre><code>## [1] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
+<pre class="r"><code>argentino_vector &lt;- goleadores_df$argentino_si # Noten que este código crea un vector aparte, llamado argentino_vector
+argentino_vector</code></pre>
+<pre><code>## [1] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
+<p>Eso, como pueden ver, crea un vector con los valores FALSE y TRUE para cada observación. Si ahora usamos eso como índice, nos sirve para elegir casos (filas). Así:</p>
+<pre class="r"><code>goleadores_df[argentino_vector,]</code></pre>
+<pre><code>##                nombre goles partidos argentino_si         equipo
+## 2       Angel Labruna   293      515         TRUE          River
+## 3 Herminio Masantonio   256      358         TRUE        Huracán
+## 4    Manuel Pelegrina   229      229         TRUE    Estudiantes
+## 5      Martín Palermo   227      410         TRUE   Boca Juniors
+## 6     José Sanfilippo   226      330         TRUE    San Lorenzo
+## 7      Carlos Bianchi   206      324         TRUE Velez Sarfield
+## 8     Miguel Brindisi   194      441         TRUE        Huracán</code></pre>
+<p>Noten como solo muestras las filas para las que la variable argentino_si es TRUE. Es decir, quitó a Arsenio Erico, que es de nacionalidad Paraguaya.</p>
+<p>También puedo seleccionar por rango. Por ejemplo, todos los que tienen más de 250 goles.</p>
+<pre class="r"><code>goleadores_df[goles &gt; 250,]</code></pre>
+<pre><code>##                nombre goles partidos argentino_si        equipo
+## 1        Arseio Erico   295      332        FALSE Independiente
+## 2       Angel Labruna   293      515         TRUE         River
+## 3 Herminio Masantonio   256      358         TRUE       Huracán</code></pre>
+</div>
+<div id="ordenar-un-data-frame" class="section level1">
+<h1>Ordenar un data frame</h1>
+<p>También podemos ordenar por los valores numéricos o alfabéticos de cada columna. La función order() la posición del caso en función de la variable.<br />
+Por ejemplo</p>
+<pre class="r"><code>orden_partidos &lt;-order(goleadores_df$partidos, decreasing = TRUE)
+orden_partidos</code></pre>
+<pre><code>## [1] 2 8 5 3 1 6 7 4</code></pre>
+<p>Ahí se puede ver como el jugador en la segunda fila (Angel Labruna) es el que más partido tiene, por ese el número de su fila aparece de primero en el vector. El segundo jugador con más goles es Miguel Brindisi, por lo que su fila (8) está en la segunda posición.</p>
+<p>Ahora usemos esa función para ordenar el data frame en función de los partidos jugados.</p>
+<pre class="r"><code>ranking_partidos &lt;-order(goleadores_df$partidos, decreasing = TRUE) #ponemos la condición de decreasing, cuyo default es FALSE, para que ordene de mayor a menor. 
+
+goleadores_df[ranking_partidos,]</code></pre>
+<pre><code>##                nombre goles partidos argentino_si         equipo
+## 2       Angel Labruna   293      515         TRUE          River
+## 8     Miguel Brindisi   194      441         TRUE        Huracán
+## 5      Martín Palermo   227      410         TRUE   Boca Juniors
+## 3 Herminio Masantonio   256      358         TRUE        Huracán
+## 1        Arseio Erico   295      332        FALSE  Independiente
+## 6     José Sanfilippo   226      330         TRUE    San Lorenzo
+## 7      Carlos Bianchi   206      324         TRUE Velez Sarfield
+## 4    Manuel Pelegrina   229      229         TRUE    Estudiantes</code></pre>
+<p>Con esto termina el tutorial de manejo de Data Frames.</p>
 </div>
 
 

@@ -1,8 +1,0 @@
-"0","# veamos el diámetro de Mercury (fila 1, columna 3)"
-"0","planets_df[1,3]"
-"1","[1]"
-"1"," 0.382"
-"1","
-"
-"0","# ahora veamos todos los valores para Mars (la fila 4 completa)"
-"0","planets_df[4,]"

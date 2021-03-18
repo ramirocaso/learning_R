@@ -1,0 +1,3 @@
+"0","ranking_partidos <-order(goleadores_df$partidos, decreasing = TRUE) #ponemos la condición de decreasing, cuyo default es FALSE, para que ordene de mayor a menor. "
+"0",""
+"0","goleadores_df[ranking_partidos,]"
