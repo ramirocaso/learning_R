@@ -76,6 +76,8 @@ rings <- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
 # Una vez creados los vectores, hacemos el data frame y lo llamamos planets_df
 planets_df <-data.frame(name, type, diameter, rotation, rings)
 
+# Aprovechemos y apliquemos lo aprendido viendo la estructura del nuevo DF
+str(planets_df)
 ```
 
 
