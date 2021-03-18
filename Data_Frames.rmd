@@ -55,7 +55,6 @@ str(mtcars)
 
 # Creando un Data Frame
 
-As a first goal, you want to construct a data frame that describes the main characteristics of eight planets in our solar system. According to your good friend Buzz, the main features of a planet are:
 Construyamos un DF con información de planetas. Las características principales de estos planetas son: 
 
 * Tipo de planeta (Terrestrial or Gas Giant).
