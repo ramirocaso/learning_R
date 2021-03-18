@@ -53,3 +53,29 @@ Usar la función str() es de las primeras cosas que debemos hacer cuando tenemos
 str(mtcars)
 ```
 
+# Creando un Data Frame
+
+As a first goal, you want to construct a data frame that describes the main characteristics of eight planets in our solar system. According to your good friend Buzz, the main features of a planet are:
+Construyamos un DF con información de planetas. Las características principales de estos planetas son: 
+
+* Tipo de planeta (Terrestrial or Gas Giant).
+* El diámetro del planeta relativo al diámetro de la tierra.
+* La rotación del planeta en relación al sol relativa a la rotación de la tierra
+* Si el planeta tiene anillos o no (TRUE or FALSE)
+
+Necesitamos crear los vectores necesarios: name, type, diamater, rotation y ring. 
+```{r}
+  # Definición de los vectores
+name <- c("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
+type <- c("Terrestrial planet", "Terrestrial planet", "Terrestrial planet", 
+          "Terrestrial planet", "Gas giant", "Gas giant", "Gas giant", "Gas giant")
+diameter <- c(0.382, 0.949, 1, 0.532, 11.209, 9.449, 4.007, 3.883)
+rotation <- c(58.64, -243.02, 1, 1.03, 0.41, 0.43, -0.72, 0.67)
+rings <- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
+
+# Una vez creados los vectores, hacemos el data frame y lo llamamos planets_df
+planets_df <-data.frame(name, type, diameter, rotation, rings)
+
+```
+
+
