@@ -1,8 +1,0 @@
-"0","# veamos cuántos partidos jugó Martín Palermo en su carrera (fila 5, columna 2)"
-"0","goleadores_df[5,2]"
-"1","[1]"
-"1"," 227"
-"1","
-"
-"0","# ahora veamos todos los valores para Mars (la fila 4 completa)"
-"0","goleadores_df[4,]"

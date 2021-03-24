@@ -1,6 +1,6 @@
 ---
 title: "Relational Operators"
-author: "Ramiro Casó"
+author: "Ramiro Casó - Incae Business School"
 date: "3/23/2021"
 output: html_document
 ---
