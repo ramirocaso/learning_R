@@ -1,0 +1,82 @@
+---
+title: "Relational Operators"
+author: "Ramiro Casó"
+date: "3/23/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## ¿Qué son los relational operators?
+
+Son todos los operadores que nos permiten hacer comparaciones entre distintos tipos de datos. Algunos de los operadores relacionales más comunes son:  
+
+* "igual" (==) 
+* "no es igual" (!=) 
+* "mayor que" (>) 
+* "menor que" (<) 
+
+Veamos ejemplos simples. Noten como el resultado de la comparación es una expresión lógica TRUE o FALSE. Dicho de otro modo, si la comparación que estamos haciendo es verdadera (por ejemplo, 10 == 10), R arroja como resultado TRUE. Lo contrario ocurre cuando la comparación no es verdadera. 
+
+```{r}
+# Comparación de logicals
+TRUE == FALSE
+
+
+# Comparación de numéricos
+-6*14 != 17-101
+
+# Comparación de texto o string
+'usuarios' == 'usuario'
+
+# Comparación de logical con numérico
+TRUE == 1
+
+# Comparación de numéricos
+-6 * 5 + 2 >= -10 + 1
+
+# Comparación de texto o string
+"Carro" <= "Lancha"
+
+# Comparison of logicals
+TRUE > FALSE
+
+```
+Noten que en todos los casos la respuesta es TRUE o FALSE. Cuando se comparan variables de texto, R ordena alfabéticamente. 
+
+# Veamos ahora comparaciones de vectores. 
+
+```{r}
+# Creemos unos vectores con las vistas que tus perfiles de Facebook o Linkedin han tenido en los últimos 7 días
+linkedin <- c(16, 9, 13, 5, 2, 17, 14)
+facebook <- c(17, 7, 5, 16, 8, 13, 14)
+
+# Días populares
+linkedin > 15
+
+# Días tranquilos
+linkedin <= 5
+
+# ¿LinkedIn es más popular que Facebook?
+linkedin > facebook
+```
+Noten que lo que R hace es comparar la regla con cada elemento en el vector y para cada uno arroja un resultado. Así, Si decimos que Linkedin es mayor que 15, eso es TRUE para el primero y sexto elemento en el vector (16 y 17). De igual forma, si comparamos a los dos vectores, compara posición a posición. 
+
+# Comparando matrices
+También podemos comparar matrices. Si poneos los vectores de Linkedin y Facebook en una matriz (recordemos que las matrices son objetos de dos dimensiones pero del mismo tipo), R hace una matriz nueva con los valores lógicos de la comparación. Veamos
+
+```{r}
+# Creamos la matriz "visitas" y la vemos
+visitas <- matrix(c(linkedin, facebook), nrow = 2, byrow = TRUE)
+visitas
+
+# ¿Cuándo las visitas fueron iguales a 13?
+visitas == 13
+
+# ¿Cuándo las visitas fueron menores o iguales a 14?
+visitas <=14
+```
+
+Esto concluye el tutorial sobre relational operators. 
