@@ -1,0 +1,97 @@
+---
+title: "Logical Operatos"
+author: "Ramiro Casó - Incae Business School"
+date: "3/24/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## ¿Qué son los operadores lógicos?
+
+Son operadores del tipo AND `&`, OR `|` y NOT `!`, que permiten combinar los operadores relacionales que vimos en este [tutorial](https://ramirocaso.github.io/learning_R/relational_operators.html) 
+
+### El operador AND
+
+El operador AND, que se usa con el signo del ampersand o `&` sirve para establecer relaciones entre dos datos o conjuntos de datos, siendo verdadero cuando los elementos del conjunto son verdaderos. 
+
+Por ejemplo
+```{r}
+x <- 5
+x > 3 & x < 10
+```
+En este caso, el objeto `x` contiene el valor `5`. Como `5` es mayor que tres `Y TAMBIÉN` es menor que `10`, el resultado es `TRUE`. 
+
+### El operador OR
+
+El operador `OR` que se escribe con la barra vertical `|` examina las dos afirmaciones y si al menos una de ellas es cierta, arroja como resultado `TRUE`. 
+
+Veamos un ejemplo
+
+```{r}
+# Usemos nuevamente el objeto `x`. 
+x
+x>7 | x>2 # se lee x es mayor que 7 OR x es mayor que 2. 
+
+```
+
+Como la expresión a la derecha del `|` es cierta, el resultado es `TRUE`. De nuevo, con que una de las opciones sea verdadero, el resultado del comando `OR` será verdadero. 
+
+Veamos un ejemplo un poco más elaborado 
+```{r}
+# Veamos el ejemplo de visitas a un perfil de Linkedin. Con este código creamos el vector y el objeto `last`. 
+linkedin <- c(16, 9, 13, 5, 2, 17, 14)
+last <- tail(linkedin, 1) # noten que el operador `tail` busca el último elemento del vector (por eso el 1 al final)
+
+# Está el último valor menor que 5 o por encima de 10?
+last < 5 | last > 10
+
+# Es el último valor entre 15 (exclusive) y 20 (incluvise)
+last >= 15 & last <= 20
+```
+
+Estos operadores funcionan muy bien con vectores. Por ejemplo 
+
+```{r}
+# Repasemos los vectores de Facebook y Linkedin, junto a la matriz visitas
+linkedin <- c(16, 9, 13, 5, 2, 17, 14)
+facebook <- c(17, 7, 5, 16, 8, 13, 14)
+visitas <- matrix(c(linkedin, facebook), nrow = 2, byrow = TRUE)
+
+# linkedin es mayor que 10 pero facebook menor que 10
+linkedin > 10 & facebook < 10
+
+# ¿Fueron alguno de los dos perfiles visitados por lo menos 12 veces?
+linkedin >=12 | facebook >= 12
+
+# ¿Cuándo las visitas estuvieron entre 11 (exclusivo) y 14 (inclusive)?
+visitas
+visitas > 11 & visitas <= 14
+
+```
+
+
+### El operador NOT
+
+Este operador arroja lo opuesto al operador que se le asigna. Por ejemplo `!=` quiere decir `is not equal`.
+Por ejemplo
+```{r}
+x<-5
+x
+!(x >7) # noten como el operador NOT anula o niega al operador de adentro del paréntesis, que estable que x > 7 (FALSE). Anular un argumento FALSE lo hace TRUE 
+```
+
+Para cerrar este tutorial, analicen la siguiente línea de código, que combina lo visto hasta ahora. 
+
+```{r}
+x <- 5
+y <- 7
+!(!(x < 4) & !!!(y > 12))
+```
+
+
+
+
+

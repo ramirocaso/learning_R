@@ -33,7 +33,7 @@ head(mtcars)
 tail(mtcars)
 ```
 
-# Viendo la estructura
+## Viendo la estructura
 
 Otra opción es ver la estructura, usando la función str()
 
@@ -53,7 +53,7 @@ Usar la función str() es de las primeras cosas que debemos hacer cuando tenemos
 str(mtcars)
 ```
 
-# Creando un Data Frame
+## Creando un Data Frame
 
 Construyamos un DF con información del fútbol argentino ;)  Las variables que utilizaremos son: 
 
@@ -78,7 +78,7 @@ goleadores_df <-data.frame(nombre,goles,partidos,argentino_si,equipo)
 # Aprovechemos y apliquemos lo aprendido viendo la estructura del nuevo DF
 str(goleadores_df)
 ```
-# Seleccionando datos de un data frame
+## Seleccionando datos de un data frame
 
 Para escoger datos de un data frame podemos usar los brackets []. Separando los números con comas, el primero indica que fila buscar y el segundo que columna buscar. Así, por ejemplo goleadores_df[1,3] busca el dato de la primera fila y la tercera columna. 
 
@@ -128,7 +128,7 @@ También puedo seleccionar por rango. Por ejemplo, todos los que tienen más de 
 goleadores_df[goles > 250,]
 ```
 
-# Ordenar un data frame
+## Ordenar un data frame
 También podemos ordenar por los valores numéricos o alfabéticos de cada columna. 
 La función order() la posición del caso en función de la variable.  
 Por ejemplo

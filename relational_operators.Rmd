@@ -46,7 +46,7 @@ TRUE > FALSE
 ```
 Noten que en todos los casos la respuesta es TRUE o FALSE. Cuando se comparan variables de texto, R ordena alfabéticamente. 
 
-# Veamos ahora comparaciones de vectores. 
+## Veamos ahora comparaciones de vectores. 
 
 ```{r}
 # Creemos unos vectores con las vistas que tus perfiles de Facebook o Linkedin han tenido en los últimos 7 días
@@ -64,7 +64,7 @@ linkedin > facebook
 ```
 Noten que lo que R hace es comparar la regla con cada elemento en el vector y para cada uno arroja un resultado. Así, Si decimos que Linkedin es mayor que 15, eso es TRUE para el primero y sexto elemento en el vector (16 y 17). De igual forma, si comparamos a los dos vectores, compara posición a posición. 
 
-# Comparando matrices
+## Comparando matrices
 También podemos comparar matrices. Si poneos los vectores de Linkedin y Facebook en una matriz (recordemos que las matrices son objetos de dos dimensiones pero del mismo tipo), R hace una matriz nueva con los valores lógicos de la comparación. Veamos
 
 ```{r}
