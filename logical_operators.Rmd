@@ -91,7 +91,6 @@ y <- 7
 !(!(x < 4) & !!!(y > 12))
 ```
 
-
-
+El resultado de ese código es `FALSE`. ¿Entiendes por qué? ;)
 
 
