@@ -1,6 +1,4 @@
 <h1 align="center">Bienvenido a mis tutoriales de R</h1>
-
-
 -----------
 
 Mi nombre es Ramiro Casó. Soy psicólogo (UCAB, 2003), MBA (Incae, 2017) y Master en Business Analytics (Incae, 2019)

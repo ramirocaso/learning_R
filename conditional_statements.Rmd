@@ -1,0 +1,30 @@
+---
+title: "Conditional Statements"
+author: "Ramiro Casó - Incae Business School"
+date: "3/24/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+-----------
+**Nota**: Este tutorial es parte de una larga lista de tutoriales que iré creando y compartiendo. Si quieres conocer otros, puedes [revisar el índice acá](https://ramirocaso.github.io/learning_R/)
+
+## ¿Qué son Conditional Statements?
+Son códigos que se ejecutan si antes se cumple alguna condición. Los que se usan más frecuentemente son el `if statement` y el `else statament`
+
+## El IF Statement
+Este comando ejecuta una operación en R si antes se evalúa una condición como verdadera. 
+
+Por ejemplo
+```{r}
+temperatura <- 30
+if(temperatura > 25) {
+  print ("hace mucho calor")
+}
+```
+
+
+
