@@ -8,6 +8,8 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+-----------
+**Nota**: Este tutorial es parte de una larga lista de tutoriales que iré creando y compartiendo. Si quieres conocer otros, puedes [revisar el índice acá](https://ramirocaso.github.io/learning_R/)
 
 ## ¿Qué son los operadores lógicos?
 

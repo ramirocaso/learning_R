@@ -8,6 +8,9 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+-----------
+**Nota**: Este tutorial es parte de una larga lista de tutoriales que iré creando y compartiendo. Si quieres conocer otros, puedes [revisar el índice acá](https://ramirocaso.github.io/learning_R/)
+
 
 ## ¿Qué es un Data Frame?
 Un data frame no es otra cosa que una tabla de datos en la que las filas representan las observaciones y las columnas las variables. El DF, a diferencia de la matriz, puede almacenar diferentes tipos de varialbes (eso quiere decir, diferentes niveles de medidas)
