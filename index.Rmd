@@ -1,4 +1,4 @@
-<h1 align="center">Bienvenidos a mis tutoriales de R</h1>
+<h1 align="center">Bienvenido a mis tutoriales de R</h1>
 
 
 -----------
@@ -10,6 +10,8 @@ Actualmente trabajo como investigador en Incae Business School mientras curso mi
 Como investigador en Incae colaboro en varios cursos relacionados con ciencias de datos. Es por ello que he decidido crear estos tutoriales, que tienen para mi un valor es doble. Por un lado, me sirven para repasar muchos de los conceptos y elementos técnicos de este fascinante lenguaje de programación. Por otro lado, sirve como material de apoyo para el estudiante curioso que quiera profundizar en el uso de esta herramienta. Este **ganar-ganar** es razón y motivo suficiente para dedicarle tiempo a la elaboración de estos documentos. 
 
 Como podrán ver en el formato, está hecho todo en R (inclusive esta página que lees ahora). El formato es limpio y simple al extremo. Importa más el contenido que la forma. Además, es este una colección de documentos vivos, que iré actualizando o modificando según lo considere necesario. Así que si hallaste esta página y te pareció interesante, no dejes de volver. Es posible que consigas algo un poquito mejor. 
+
+Espero lo encuentres interesante y útil. 
 
 ------------
 
