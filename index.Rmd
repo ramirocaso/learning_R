@@ -1,4 +1,6 @@
-#Bienvenido a mi tutorial de R
+<h1 align="center">Bienvenidos a mi tutorial de R</h1>
+
+
 -----------
 
 Mi nombre es Ramiro Casó. Soy psicólogo (UCAB, 2003), MBA (Incae, 2017) y Master en Business Analytics (Incae, 2019)
@@ -11,7 +13,7 @@ Como podrán ver en el formato, está hecho todo en R (inclusive esta página qu
 
 ------------
 
-<h2><align="center">ÍNDICE</h2>
+<h2 align="center">ÍNDICE</h2>
 
 #### R Intermedio
 * [¿Qué son los data frames?](https://ramirocaso.github.io/learning_R/Data_Frames.html)
