@@ -1,0 +1,123 @@
+---
+title: "Loops"
+author: "Ramiro Casó - Incae Business School"
+date: "3/25/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+-----------
+**Nota**: Este tutorial es parte de una larga lista de tutoriales que iré creando y compartiendo. Si quieres conocer otros, puedes [revisar el índice acá](https://ramirocaso.github.io/learning_R/)
+
+## ¿Qué son los loops? 
+Son estructuras de código que se ejecutan siempre que la condición se cumpla o el conjunto de datos sobre el que trabajen no se haya agotado. Se les llaman LOOPS porque se mantienen ejecutándose en ciclos mientras las condiciones se mantengan. 
+
+### El WHILE LOOP
+Como su nombre lo indica, el WHILE loop se mantiene funcionando MIENTRAS las condición que la define sea verdadera. Veamos un ejemplo. 
+
+```{r}
+conteo <- 1
+while(conteo <= 10) {
+  print(paste("conteo es igual a", conteo))
+  conteo <- conteo + 1
+}
+conteo
+```
+
+Como pueden ver, las dos operaciones de print y sumarle 1 a conteo se ejecuta MIENTRAS conteo es menor que 10. Pero una vez que esa condición no se cumple, el `loop` se detiene. 
+Vemos que al final del  `loop` pedimos imprimir `conteo`, y nos damos cuenta que en efecto es 11, que hace que la condición del  `loop`  sea falsa y, por lo tanto, detiene el  `loop`. 
+
+Hay que tener mucho cuidado porque si no definimos la condición para parar el loop, R lo ejecutará de forma indefinida y tendremos que pararlo manualmente. 
+
+Para ello, podemos incluir un operador de `break`
+
+```{r}
+conteo <- 1
+while (conteo <= 10) {
+  if(conteo %% 5 == 0) {
+    break
+  }
+  print(paste("conteo es igual a", conteo))
+  conteo <- conteo + 1
+}
+conteo
+```
+En este caso, le pusimos un freno `break` al `loop` usando un `if` que se fija si el resultado de `conteo` es divisible entre 5 (**nota**: el doble % lo que hace es fijarse si el residuo de dividir el valor de `conteo` entre 5 es igual a 0, es decir, es divisible entre 5. Si eso es cierto, ejecuta el `break`). Como podemos ver, cuando imprimos `conteo` nos damos cuenta que, en efecto, frenó el `loop` cuando el resultado era divisible entre 5 (5/5=1 y el residuo = 0)
+
+Veamos otro ejemplo
+```{r}
+# Imaginemos una variable de velocidad
+velocidad <- 64
+
+# El código del while loop
+while (velocidad > 30) {
+  print("¡Frena por Dios!")
+  velocidad <- velocidad-7
+}
+
+# Imrpimamos la variable velocidad
+velocidad
+```
+Podemos poner alguno de los operadores condicionales del pasado. Veamos
+```{r}
+# De nuevo la variable velocidad
+velocidad <- 64
+
+# Extend/adapt the while loop
+while (velocidad > 30) {
+  print(paste("tu velocidad es",velocidad))
+  if (velocidad > 48) {
+    print("¡Frena por favor que nos vamos a estrellar")
+    velocidad <- velocidad - 11
+  } else {
+    print("¡Frena!")
+    velocidad <- velocidad - 6
+  }
+}
+```
+Nota como el `if` lo que hace es fijarse si velocidad es muy alta (mayor que 48). Si eso es verdadero, imprime una advertencia más urgente y le resta un número mayor a velocidad (11). Si eso no es verdadero (es decir, si velocidad es menor que 48) simplemente te pide que frenes y le resta un número menor a velocidad (6) 
+
+Si a lo anterior le incluímos el `break`, quedaría así
+
+```{r}
+# De nuevo la variable velocidad
+velocidad <- 88
+
+while (velocidad > 30) {
+  print(paste("tu velocidad es", velocidad))
+  
+  # Break the while loop when speed exceeds 80
+  if (velocidad > 80 ) {break
+    
+  }
+  
+  if (velocidad > 48) {
+    print("¡Frena por Dios que nos vamos a estrellar")
+    velocidad <- velocidad - 11
+  } else {
+    print("¡Frena!")
+    velocidad <- velocidad - 6
+  }
+}
+```
+
+Otro ejemplo más
+
+```{r}
+# Iniciamos con i igual a 1 
+i <- 1
+
+# El código del while loop
+while (i <= 10) {
+  print(3 * i)
+  if ( (3 * i) %% 8 == 0) {
+    break
+  }
+  i <- i + 1
+}
+```
+
+
