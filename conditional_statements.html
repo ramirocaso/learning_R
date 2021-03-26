@@ -177,10 +177,153 @@ pre code {
 <h2>¿Qué son Conditional Statements?</h2>
 <p>Son códigos que se ejecutan si antes se cumple alguna condición. Los que se usan más frecuentemente son el <code>if statement</code> y el <code>else statament</code></p>
 </div>
-<div id="el-if-statement" class="section level2">
-<h2>El IF Statement</h2>
-<p>Este comando ejecuta una operación en R si antes se evalúa una condición como verdadera. Se usa bajo la forma</p>
-<p>if(condition) { expre }</p>
+<div id="el-if-y-else-statement" class="section level2">
+<h2>El IF y ELSE Statement</h2>
+<p>Este comando ejecuta una operación en R si antes se evalúa una condición como verdadera.</p>
+<p>Por ejemplo</p>
+<pre class="r"><code>x &lt;- -5
+if(x &lt; 0) {
+  print (&quot;x es un número negativo&quot;)
+}</code></pre>
+<pre><code>## [1] &quot;x es un número negativo&quot;</code></pre>
+<p>Si cambiamos el valor de x a un número mayor de cero, la condición del <code>if</code> es <code>FALSE</code> y R no imprime nada. Veamos</p>
+<pre class="r"><code>x &lt;- 5
+if(x &lt; 0) {
+  print (&quot;x es un número negativo&quot;)
+}</code></pre>
+<p>Para solucionar este problema, usamos el <code>ELSE</code> statement.</p>
+<pre class="r"><code>x &lt;- 5
+if(x &lt; 0) {
+  print (&quot;x es un número negativo&quot;)
+} else {
+  print(&quot;x es un número positivo o es cero&quot;)
+}</code></pre>
+<pre><code>## [1] &quot;x es un número positivo o es cero&quot;</code></pre>
+</div>
+<div id="el-if-else-statement" class="section level2">
+<h2>El IF ELSE Statement</h2>
+<p>Este comando ejecuta entre el <code>IF</code> y el <code>ELSE</code> y sirve para incorporar una tercera condición</p>
+<pre class="r"><code>x &lt;- -3
+
+if (x&lt;0) {
+  print(&quot;x es negativo&quot;)
+} else if(x == 0) {
+  print(&quot;x es igual a cero&quot;)
+} else {
+  print(&quot;x es positivo&quot;)
+}</code></pre>
+<pre><code>## [1] &quot;x es negativo&quot;</code></pre>
+<pre class="r"><code>x &lt;- 3
+
+if (x&lt;0) {
+  print(&quot;x es negativo&quot;)
+} else if(x == 0) {
+  print(&quot;x es igual a cero&quot;)
+} else {
+  print(&quot;x es positivo&quot;)
+}</code></pre>
+<pre><code>## [1] &quot;x es positivo&quot;</code></pre>
+<pre class="r"><code>x &lt;- 0
+
+if (x&lt;0) {
+  print(&quot;x es negativo&quot;)
+} else if(x == 0) {
+  print(&quot;x es igual a cero&quot;)
+} else {
+  print(&quot;x es positivo&quot;)
+}</code></pre>
+<pre><code>## [1] &quot;x es igual a cero&quot;</code></pre>
+<p>Veamos un ejemplo más complejo</p>
+<pre class="r"><code># Variables relacionadas a tu última medición de popularidad en redes sociales
+red &lt;- &quot;LinkedIn&quot;
+num_visitas &lt;- 2
+
+# Estructura del código para medium
+if (red == &quot;LinkedIn&quot;) {
+  print(&quot;Mostrando información de LinkedIn&quot;)
+} else if (red == &quot;Facebook&quot;) {print(&quot;Mostrando información de Facebook&quot;)
+} else {
+  print(&quot;Red no conocida&quot;)
+}</code></pre>
+<pre><code>## [1] &quot;Mostrando información de LinkedIn&quot;</code></pre>
+<pre class="r"><code># Estructura del código para num_visitas
+if (num_visitas &gt; 15) {
+  print(&quot;¡Te están viendo!&quot;)
+} else if (num_visitas &lt;= 15 &amp; num_visitas &gt; 10) {print(&quot;El número de visitas es promedio&quot;)
+
+} else {
+  print(&quot;¡Trata de ser más visible&quot;)
+}</code></pre>
+<pre><code>## [1] &quot;¡Trata de ser más visible&quot;</code></pre>
+<p>O este otro ejemplo, en el que podemos pedirle al <code>IF</code> que cambie las variables</p>
+<pre class="r"><code>numero &lt;- 100
+resultado &lt;- &quot;grande&quot;
+if (numero &lt; 10) {
+  if (numero &lt; 5) {
+    resultado &lt;- &quot;muy pequeño&quot;
+  } else {
+    resultados &lt;- &quot;peqieño&quot;
+  }
+} else if (numero &lt; 100) {
+  resultado &lt;- &quot;mediano&quot;
+} else {
+  resultado &lt;- &quot;grande&quot;
+}
+print(resultado)</code></pre>
+<pre><code>## [1] &quot;grande&quot;</code></pre>
+<p>Ese código hace lo siguiente: Se fija si el número es menor que 10. Si es verdadero, se fija si es menor que 5. Si es verdadero, imprime <code>muy pequeño</code> y si es falso, imprime <code>pequeño</code>. PEro si es falso, pero si es falso, se fija si es menor que 100. Si es verdero, imprime <code>mediano</code>, pero si es falso (es decir, si es mayor que 100), imprime <code>Grande</code>.</p>
+<p>Veamos lo que pasa si hacemos la variable <code>numero</code> menor que 5.</p>
+<pre class="r"><code>numero &lt;- 2
+resultado &lt;- &quot;grande&quot;
+if (numero &lt; 10) {
+  if (numero &lt; 5) {
+    resultado &lt;- &quot;muy pequeño&quot;
+  } else {
+    resultados &lt;- &quot;pequeño&quot;
+  }
+} else if (numero &lt; 100) {
+  resultado &lt;- &quot;mediano&quot;
+} else {
+  resultado &lt;- &quot;grande&quot;
+}
+print(resultado)</code></pre>
+<pre><code>## [1] &quot;muy pequeño&quot;</code></pre>
+<p>Por último, para combinar varios de los elementos que hemos visto en tutoriales anteriores.</p>
+<pre class="r"><code># Veamos variables de visitas para tus redes, en donde li es LinkedIn y fb es Facebook. 
+li &lt;- 15
+fb &lt;- 9
+
+# Analiza lo que hace este código. Nota como combina los operados AND y hace algunos cálculos sencillos. 
+if (li &gt;= 15 &amp;  fb &gt;= 15) {
+  sms &lt;- 2 * (li + fb)
+} else if (li &lt; 10 &amp;  fb &lt; 10) {
+  sms &lt;- 0.5 * (li + fb)
+} else {
+  sms &lt;- li + fb
+}
+
+# Imrpimimos sms
+sms</code></pre>
+<pre><code>## [1] 24</code></pre>
+<p>¿Notaste lo que hicimos?</p>
+<p>¿Qué pasa si hacemos que la condición del primer <code>IF</code>, que incluye un <code>AND</code>, sea verdadera?</p>
+<pre class="r"><code># Veamos variables de visitas para tus redes, en donde li es LinkedIn y fb es Facebook. 
+li &lt;- 15
+fb &lt;- 20
+
+# Date cuenta como ahora, al ser verdadera la primera condicion, se ejecuta la operación del primer if 
+if (li &gt;= 15 &amp;  fb &gt;= 15) {
+  sms &lt;- 2 * (li + fb)
+} else if (li &lt; 10 &amp;  fb &lt; 10) {
+  sms &lt;- 0.5 * (li + fb)
+} else {
+  sms &lt;- li + fb
+}
+
+# Imrpimimos sms
+sms</code></pre>
+<pre><code>## [1] 70</code></pre>
+<p>Con esto terminanos el tutorial de los conditional statements</p>
 </div>
 
 

@@ -15,16 +15,173 @@ knitr::opts_chunk$set(echo = TRUE)
 ## ¿Qué son Conditional Statements?
 Son códigos que se ejecutan si antes se cumple alguna condición. Los que se usan más frecuentemente son el `if statement` y el `else statament`
 
-## El IF Statement
+## El IF y ELSE Statement
 Este comando ejecuta una operación en R si antes se evalúa una condición como verdadera. 
 
 Por ejemplo
 ```{r}
-temperatura <- 30
-if(temperatura > 25) {
-  print ("hace mucho calor")
+x <- -5
+if(x < 0) {
+  print ("x es un número negativo")
+}
+```
+Si cambiamos el valor de x a un número mayor de cero, la condición del `if` es `FALSE` y R no imprime nada. 
+Veamos
+```{r}
+x <- 5
+if(x < 0) {
+  print ("x es un número negativo")
 }
 ```
 
+Para solucionar este problema, usamos el `ELSE` statement. 
 
+```{r}
+x <- 5
+if(x < 0) {
+  print ("x es un número negativo")
+} else {
+  print("x es un número positivo o es cero")
+}
+```
+
+## El "IF ELSE" Statement
+Este comando ejecuta entre el `IF` y el `ELSE` y sirve para incorporar una tercera condición  
+
+```{r}
+x <- -3
+
+if (x<0) {
+  print("x es negativo")
+} else if(x == 0) {
+  print("x es igual a cero")
+} else {
+  print("x es positivo")
+}
+```
+
+```{r}
+x <- 3
+
+if (x<0) {
+  print("x es negativo")
+} else if(x == 0) {
+  print("x es igual a cero")
+} else {
+  print("x es positivo")
+}
+```
+
+```{r}
+x <- 0
+
+if (x<0) {
+  print("x es negativo")
+} else if(x == 0) {
+  print("x es igual a cero")
+} else {
+  print("x es positivo")
+}
+```
+
+Veamos un ejemplo más complejo
+
+```{r}
+# Variables relacionadas a tu última medición de popularidad en redes sociales
+red <- "LinkedIn"
+num_visitas <- 2
+
+# Estructura del código para medium
+if (red == "LinkedIn") {
+  print("Mostrando información de LinkedIn")
+} else if (red == "Facebook") {print("Mostrando información de Facebook")
+} else {
+  print("Red no conocida")
+}
+
+# Estructura del código para num_visitas
+if (num_visitas > 15) {
+  print("¡Te están viendo!")
+} else if (num_visitas <= 15 & num_visitas > 10) {print("El número de visitas es promedio")
+
+} else {
+  print("¡Trata de ser más visible")
+}
+```
+
+O este otro ejemplo, en el que podemos pedirle al `IF` que cambie las variables
+```{r}
+numero <- 100
+resultado <- "grande"
+if (numero < 10) {
+  if (numero < 5) {
+    resultado <- "muy pequeño"
+  } else {
+    resultados <- "peqieño"
+  }
+} else if (numero < 100) {
+  resultado <- "mediano"
+} else {
+  resultado <- "grande"
+}
+print(resultado)
+```
+Ese código hace lo siguiente: Se fija si el número es menor que 10. Si es verdadero, se fija si es menor que 5. Si es verdadero, imprime `muy pequeño` y si es falso, imprime `pequeño`. PEro si es falso, pero si es falso, se fija si es menor que 100. Si es verdero, imprime `mediano`, pero si es falso (es decir, si es mayor que 100), imprime `Grande`.
+
+Veamos lo que pasa si hacemos la variable `numero` menor que 5. 
+```{r}
+numero <- 2
+resultado <- "grande"
+if (numero < 10) {
+  if (numero < 5) {
+    resultado <- "muy pequeño"
+  } else {
+    resultados <- "pequeño"
+  }
+} else if (numero < 100) {
+  resultado <- "mediano"
+} else {
+  resultado <- "grande"
+}
+print(resultado)
+```
+ Por último, para combinar varios de los elementos que hemos visto en tutoriales anteriores. 
+```{r}
+# Veamos variables de visitas para tus redes, en donde li es LinkedIn y fb es Facebook. 
+li <- 15
+fb <- 9
+
+# Analiza lo que hace este código. Nota como combina los operados AND y hace algunos cálculos sencillos. 
+if (li >= 15 &  fb >= 15) {
+  sms <- 2 * (li + fb)
+} else if (li < 10 &  fb < 10) {
+  sms <- 0.5 * (li + fb)
+} else {
+  sms <- li + fb
+}
+
+# Imrpimimos sms
+sms
+```
+ ¿Notaste lo que hicimos?
+
+¿Qué pasa si hacemos que la condición del primer `IF`, que incluye un `AND`, sea verdadera?
+```{r}
+# Veamos variables de visitas para tus redes, en donde li es LinkedIn y fb es Facebook. 
+li <- 15
+fb <- 20
+
+# Date cuenta como ahora, al ser verdadera la primera condicion, se ejecuta la operación del primer if 
+if (li >= 15 &  fb >= 15) {
+  sms <- 2 * (li + fb)
+} else if (li < 10 &  fb < 10) {
+  sms <- 0.5 * (li + fb)
+} else {
+  sms <- li + fb
+}
+
+# Imrpimimos sms
+sms
+```
+Con esto terminanos el tutorial de los conditional statements
 
