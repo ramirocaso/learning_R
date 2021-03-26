@@ -117,7 +117,7 @@ if (numero < 10) {
   if (numero < 5) {
     resultado <- "muy pequeño"
   } else {
-    resultados <- "peqieño"
+    resultados <- "pequeño"
   }
 } else if (numero < 100) {
   resultado <- "mediano"
