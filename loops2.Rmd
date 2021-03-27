@@ -1,0 +1,128 @@
+---
+title: "loops_2"
+author: "Ramiro Casó - Incae Business School"
+date: "3/26/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Nota**: Este tutorial es parte de una larga lista de tutoriales que iré creando y compartiendo. Si quieres conocer otros, puedes [revisar el índice acá](https://ramirocaso.github.io/learning_R/)
+
+## ¿Qué son los FOR Loops?
+
+Estos son quizá uno de los loops de más uso y, también, de los que en un principio cuesta más entender. 
+La estructura de un `for loop` es la siguiente: para toda variable en una secuencia ejecuta el siguiente comando. 
+
+Veamos un ejemplo
+
+```{r}
+# creamos un vector los nosmbres de los equipos del futbol argentino. 
+
+equipos <- c("Boca Juniors", "River Plate", "Independiente", "San Lorenzo", "Huracán", "Gimnasia y Esgrima de la Plata", "Racing", "Estudiantes de la Plata")
+
+# Ahora hagamos un For loop sencillo
+for (equipo in equipos) {
+  print(equipo)
+}
+```
+Ese loop sencillo lo que hace simplemente es busca cada equipo en la variable equipos y lo imprime. Noten que la expresión `print` se ejecuta para cada uno de los elementos dentro de la variable `equipos`. De ahí el término FOR. 
+
+## Break statement
+
+Uno de los comandos para controlar el for loop es `break`, similar a lo que vimos en el tutorial de los `while loops`. Lo que hace este comando es ejecutar la condición que lo define y si esta es verdadera, detiene el loop. 
+
+Veamos un ejemplo. 
+Vamos a pedirle al `break` que se ejecute si el número de caracteres en el nombre de los equipos es mayor que diez. Para eso usaremos el comando nchar, que cuenta cuántos caracteres o letras hay en un dato de texto. 
+
+```{r}
+# Repitamos el loop sencillo de equipos argentinos
+
+for (equipo in equipos) {
+  if(nchar(equipo)>13) {
+    break
+  }
+  print(equipo)
+}
+```
+
+Noten como lo que hace el `for loop` es fijarse si la condición del `if` es verdadera, en cuyo caso ejecuta el `break`. Eso sucede cuando llega al equipo `Gimnasia y Esgrima de la Plata`, por lo que el `for loop` se detiene. 
+
+## Next statement
+
+El `next statement` se ejecuta dentro del `for loop` de manera similar al `break` pero con una diferencia importante: lo que hace es pasar al siguiente elemento de la secuencia cuando la condición es verdadera. Veamos
+
+```{r}
+# Repitamos el loop sencillo de equipos argentinos una vez más
+
+for (equipo in equipos) {
+  if(nchar(equipo)>13) {
+    next
+  }
+  print(equipo)
+}
+```
+Como pueden ver, cuando la condición del `if` se cumplió, en en lugar de detenerse, lo que hizo R fue saltar al siguiente, que en este caso era `Racing`. 
+
+Una manera distinta y  mucho más común (aunque también menos intuitiva) de usar los `for loops` es con los índices de looping. Cada elemento dentro del vector tiene un número o posición, que R usa detrás de cámaras para sus cálculos. Nosotros podemos pedirle al `for loop` que utilice ese índice para las iteraciones. 
+
+Veamos
+
+```{r}
+# Repitamos el loop sencillo de equipos argentinos una vez más
+
+for (i in 1:length(equipos)) {
+  print(equipos[i])
+}
+```
+
+Hacerlo así nos permite tener acceso al índice, con lo cual se pueden hacer cosas más interesantes. Por ejemplo, esta
+
+```{r}
+# Repitamos el loop sencillo de equipos argentinos una vez más
+
+for (i in 1:length(equipos)) {
+  print(paste(equipos[i], "está en la posición", i, "en el vector de equipos"))
+}
+```
+
+## For loops anidados
+
+La cantidad de cosas que se pueden hacer con los `for loops` es enorme y no da para cubrirlos todos en este tutorial. Algunos de los importantes son los loops anidados. 
+
+Veamos un ejemplo
+
+```{r}
+# creamos un vector con los siguientes elementos
+j <- c("0","NA","X","NA","0","0","X","NA","X")
+ttt <-matrix(j,nrow=3, byrow=TRUE) #esta es una matriz para simular el popular juego tic tac toe, conocido como la vieja en Venezuela o Gato en Costa Rica
+# imprimimos la matriz para verla
+ttt
+# y ahora hacemos el for loop anidado
+for (i in 1:nrow(ttt)) {
+  for (j in 1:ncol(ttt)) {
+    print(paste("en la fila", i, "y en la columna", j, "el tablero contiene", ttt[i,j]))
+  }
+}
+```
+
+Hagamos ahora un ejemplo incorporando otros comandos, como el `if` y el `else`
+
+```{r}
+# Recordemos aquél vector de popularidad en redes, usando LinkedIn
+linkedin <- c(16, 9, 13, 5, 2, 17, 14)
+
+# ahora hagamos el loop. 
+for (li in linkedin) {
+  if (li > 10) {print("¡Te están viendo")
+    
+  } else {
+    
+  print("¡Intenta ser más visible!")}
+  print(li)
+}
+```
+
+Con esto terminamos el tutorial de For Loops

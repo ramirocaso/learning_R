@@ -20,4 +20,5 @@ Espero lo encuentres interesante y útil.
 * [¿Qué son los operadores lógicos?](https://ramirocaso.github.io/learning_R/logical_operators.html)
 * [¿Qué son los relational operators?](https://ramirocaso.github.io/learning_R/relational_operators.html)
 * [¿Qué son los conditional statements?](https://ramirocaso.github.io/learning_R/conditional_statements.html)
-* [¿Qué son los loops?](https://ramirocaso.github.io/learning_R/loops.html)
+* [¿Qué son los loops? parte 1](https://ramirocaso.github.io/learning_R/loops.html)
+* [¿Qué son los loops? parte 2](https://ramirocaso.github.io/learning_R/loops2.html)

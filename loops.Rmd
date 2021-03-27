@@ -91,8 +91,7 @@ while (velocidad > 30) {
   
   # Break the while loop when speed exceeds 80
   if (velocidad > 80 ) {break
-    
-  }
+  } 
   
   if (velocidad > 48) {
     print("¡Frena por Dios que nos vamos a estrellar")
