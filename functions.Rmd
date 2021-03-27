@@ -1,0 +1,124 @@
+---
+title: "Functions"
+author: "Ramiro Casó - Incae Business School"
+date: "3/27/2021"
+output: html_document
+---
+
+
+**Nota**: Este tutorial es parte de una larga lista de tutoriales que iré creando y compartiendo. Si quieres conocer otros, puedes [revisar el índice acá](https://ramirocaso.github.io/learning_R/)
+
+## ¿Qué son Funciones (functions)?
+
+Las funciones son operaciones que transforman un input o serie de inputs en outcomes específicos. Pensemos en funciones como cajas negras a las que se les introduce un dato o conjunto de datos que son transformados dentro de la función y que arrojan un resultado específico. 
+
+Un ejemplo sencillo es el cálculo de estadísticos descriptivos, como la desviación estándar `sd`. 
+
+Veamos 
+```{r}
+# goles de Matín Palermo en las últimas 4 temporadas en Boca Juniors
+goles_mp <- c(6, 10, 8, 6)
+sd(goles_mp)
+
+# cálculo de la función usando el vector directamente. 
+sd(c(6,10,8,6))
+
+# guardar el cálculo de la función en un segundo objeto que luego se puede consultar o imprimir
+sd_goles_mp <-sd(goles_mp)
+sd_goles_mp
+
+```
+La función `sd` toma como input el vector de goles que creamos y lo utiliza para arrojar el resultado 1.91 que es la desviación estándar de esa mini distribución. Adentro de la función ocurre el cálculo de la desviación, que nosotros no vemos (de ahí el nombre caja negra)
+
+Noten que podemos alimentar la función con un objeto, como `goles_mp` o con un vector `c(6,10,8,6)`
+
+Un punto importante a tener en cuenta son los argumentos de las funciones. Estos son los elementos que hay que definirle a R para que pueda ejecutar la función. Para conocer cuáles argumentos tiene una función, pueden usar la función `args()`. 
+
+Veamos
+```{r}
+args(sd)
+```
+
+Si ven, cuando llamamos args(sd) R nos dice que para el cálculo de la desviación estándar, necesita un objeto x en primer lugar, que es el set de datos sobre los que calculará la desviación y luego nos muestra un argumento que tiene por defecto: na.rm. Este argumento le indica a R que elimine los valores faltantes (los na son removed). Es un argumento lógico que solo puede ser TRUE o FALSE. El valor por defecto es FALSE. Si no lo especificamos en la función, R asume que es FALSE y lo ejecuta así (como hiciemos en el caso de Martín Palermo). 
+
+Veamos otro ejemplo
+
+```{r}
+# Goles de Diego Maradona en Boca Juniors, por año. 
+goles_dm <- c(28,NA,24,1,5)
+temporada <- c("81","82","95-96","96-97","97-98")
+dm_df <-data.frame(temporada,goles_dm)
+dm_df
+```
+Como pueden ver, para el año no hay datos, porque en ese año Diego se fue al Barcelona. 
+
+Si pedimos a R que calcule la desviación y no específicamos todos los argumentos, nos arrojará un error. Pero si ponemos el argumento `na.rm = TRUE`, resolvemos el problema. 
+
+```{r}
+# Usando la función sin cambiar los argumentos por defecto. 
+sd(goles_dm)
+
+# usando la función cambiando los argumentos por defecto
+sd(goles_dm, na.rm=TRUE)
+```
+
+Para resumir: 
+
+* Las funciones son cajas negras.
+* Las funciones tienen argumentos, que R identifica por posición o por nombre. 
+* Algunas funciones tienen argumentos por default. 
+* Para saber los argumentos de una función puedes usar `args()` o, si quieres toda la documentación, puedes usar `?nombre de la funcion`
+
+## Construyendo tus propias funciones
+R te deja construir tus propias funciones. Para ello, se usa la función `function`. 
+Veamos rápidamente cómo se hace
+
+```{r}
+# hagamos una función que multiplica por 2 los inputs y llamémosla "doble"
+
+doble <- function(x) {
+  2 * x
+}
+# ahora pongamos la función doble a prueba
+
+doble(4)
+doble(4*4)
+```
+
+En este caso, la función que construimos tiene un solo argumento (x). Evidentemente, se pueden poner muchos argumentos adicionales. 
+
+```{r}
+calculo <- function(a,b) {
+  a*b + a/b
+}
+calculo(6,2)
+```
+
+Podemos hacer que uno de los argumentos tenga un valor default, para evitar errores. 
+Veamos
+```{r message=TRUE, warning=TRUE}
+calculo_2 <- function(a,b=1) {
+  a*b + a/b
+}
+calculo_2(6) 
+```
+Noten como en este caso, no pusimos el argumento b, pero R lo asumió como 1. De ahí que el resultado sea 12
+
+Veamos un ejemplo un poco más complejo para cerrar el tutorial 
+
+```{r}
+# Veamos una función que eleva al cuadrado el input
+cuadrado <- function(x, print_info = TRUE) {
+  y <- x ^ 2
+  if (print_info) {
+    print(paste(x, "elevado al cuadrado es igual a", y))
+  }
+  return(y)
+}
+
+# Hagamos algunas pruebas. 
+cuadrado(5)
+cuadrado(5, FALSE)
+cuadrado(5, TRUE)
+```
+

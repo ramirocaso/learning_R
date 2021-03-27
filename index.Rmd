@@ -22,3 +22,4 @@ Espero lo encuentres interesante y útil.
 * [¿Qué son los conditional statements?](https://ramirocaso.github.io/learning_R/conditional_statements.html)
 * [¿Qué son los loops? parte 1](https://ramirocaso.github.io/learning_R/loops.html)
 * [¿Qué son los loops? parte 2](https://ramirocaso.github.io/learning_R/loops2.html)
+* [¿Qué son las funciones?](https://ramirocaso.github.io/learning_R/functions.html)
