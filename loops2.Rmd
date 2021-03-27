@@ -35,7 +35,7 @@ Ese loop sencillo lo que hace simplemente es busca cada equipo en la variable eq
 Uno de los comandos para controlar el for loop es `break`, similar a lo que vimos en el tutorial de los `while loops`. Lo que hace este comando es ejecutar la condición que lo define y si esta es verdadera, detiene el loop. 
 
 Veamos un ejemplo. 
-Vamos a pedirle al `break` que se ejecute si el número de caracteres en el nombre de los equipos es mayor que diez. Para eso usaremos el comando nchar, que cuenta cuántos caracteres o letras hay en un dato de texto. 
+Vamos a pedirle al `break` que se ejecute si el número de caracteres en el nombre de los equipos es mayor que 13 Para eso usaremos el comando nchar, que cuenta cuántos caracteres o letras hay en un dato de texto. 
 
 ```{r}
 # Repitamos el loop sencillo de equipos argentinos
